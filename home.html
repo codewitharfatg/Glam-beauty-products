@@ -1,0 +1,117 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            width: 350px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+        }
+
+        h2 {
+            text-align: center;
+            color: #764ba2;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #764ba2;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background: #56327d;
+        }
+
+        p {
+            text-align: center;
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>Registration Form</h2>
+
+    <form onsubmit="return registerUser()">
+
+        <input type="text" id="name"
+        placeholder="Enter Full Name" required>
+
+        <input type="email" id="email"
+        placeholder="Enter Email" required>
+
+        <input type="text" id="mobile"
+        placeholder="Enter Mobile Number"
+        pattern="[0-9]{10}" required>
+
+        <input type="password" id="password"
+        placeholder="Enter Password"
+        minlength="6" required>
+
+        <input type="password" id="confirm"
+        placeholder="Confirm Password" required>
+
+        <button type="submit"> <a href="index.html">Register Now</a></button>
+
+        <p id="message"></p>
+
+    </form>
+</div>
+
+<script>
+    function registerUser() {
+
+        let password =
+        document.getElementById("password").value;
+
+        let confirm =
+        document.getElementById("confirm").value;
+
+        if (password !== confirm) {
+            document.getElementById("message").innerHTML =
+            "Passwords do not match!";
+            return false;
+        }
+
+        document.getElementById("message").innerHTML =
+        "Registration Successful!";
+
+        return false;
+    }
+</script>
+
+</body>
+</html>
